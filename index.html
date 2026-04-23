@@ -97,7 +97,7 @@
 <body>
 
 <div class="container">
-    <h1>🌱 식물 물주기 판단</h1>
+    <h1>🌱 초록이들 밥주기기</h1>
 
     <div class="form-group">
         <label for="plant">1. 식물 선택 🌿</label>
@@ -156,7 +156,7 @@
 
         // 공통 규칙: 판단 불가 상태 처리
         if (moisture === null && daysPassed === null) {
-            result = { status: "판단 불가", action: "기다려", reason: "수분값이나 물 준 날짜를 입력해주세요.", color: "bg-yellow", warning: "애매할 때는 물을 주지 않는 것이 안전합니다." };
+            result = { status: "판단 불가", action: "ㄱㅊ", reason: "수분값이나 물 준 날짜를 입력해주세요.", color: "bg-yellow", warning: "애매할 때는 물을 주지 않는 것이 안전합니다." };
             showResult(result);
             return;
         }
@@ -164,35 +164,35 @@
         // 라벤더 로직
         if (plant === 'lavender') {
             if (moisture !== null) {
-                if (moisture <= 2) result = { status: "물 필요", action: "지금 물 줘", reason: "흙이 충분히 말랐습니다.", color: "bg-green" };
-                else result = { status: "금지", action: "기다려", reason: "아직 화분 속에 수분이 있습니다.", color: "bg-red", warning: "🚨 라벤더 과습 위험!" };
+                if (moisture <= 2) result = { status: "주모 한잔주쇼!", action: "지금 물을 주지 않으면 죽소", reason: "흙이 충분히 말랐습니다.", color: "bg-green" };
+                else result = { status: "금지", action: "ㄱㅊ", reason: "아직 화분 속에 수분이 있습니다.", color: "bg-red", warning: "🚨 라벤더 과습 위험!" };
             } else {
-                if (daysPassed >= 7) result = { status: "물 필요", action: "지금 물 줘", reason: `마지막 관수 후 ${daysPassed}일 지났습니다.`, color: "bg-green" };
-                else result = { status: "보류", action: "기다려", reason: `아직 ${daysPassed}일밖에 안 지났어요. (권장 5~7일)`, color: "bg-yellow", warning: "🚨 라벤더 과습 위험!" };
+                if (daysPassed >= 7) result = { status: "주모 한잔주쇼!", action: "지금 물을 주지 않으면 죽소", reason: `마지막 관수 후 ${daysPassed}일 지났습니다.`, color: "bg-green" };
+                else result = { status: "보류", action: "ㄱㅊ", reason: `아직 ${daysPassed}일밖에 안 지났어요. (권장 5~7일)`, color: "bg-yellow", warning: "🚨 라벤더 과습 위험!" };
             }
         }
         
         // 캄파눌라 로직
         else if (plant === 'campanula') {
             if (moisture !== null) {
-                if (moisture <= 2) result = { status: "물 필요", action: "지금 물 줘", reason: "흙이 말라가고 있습니다.", color: "bg-green", warning: "⚠️ 캄파눌라 건조 경고!" };
+                if (moisture <= 2) result = { status: "주모 한잔주쇼!", action: "지금 물을 주지 않으면 죽소", reason: "가뭄ing.", color: "bg-green", warning: "⚠️ 캄파눌라 건조 경고!" };
                 else if (moisture === 3) result = { status: "보류", action: "내일 줘", reason: "수분이 3입니다. 하루 뒤에 확인하세요.", color: "bg-yellow" };
-                else result = { status: "유지", action: "기다려", reason: "수분이 적당합니다.", color: "bg-green" };
+                else result = { status: "편안", action: "ㄱㅊ", reason: "수분이 적당합니다.", color: "bg-green" };
             } else {
-                if (daysPassed >= 3) result = { status: "물 필요", action: "지금 물 줘", reason: `마지막 관수 후 ${daysPassed}일 지났습니다.`, color: "bg-green", warning: "⚠️ 캄파눌라 건조 경고!" };
-                else result = { status: "보류", action: "기다려", reason: `아직 ${daysPassed}일 지났습니다. (권장 2~3일)`, color: "bg-yellow" };
+                if (daysPassed >= 3) result = { status: "주모 한잔주쇼!", action: "지금 물을 주지 않으면 죽소", reason: `마지막 관수 후 ${daysPassed}일 지났습니다.`, color: "bg-green", warning: "⚠️ 캄파눌라 건조 경고!" };
+                else result = { status: "보류", action: "ㄱㅊ", reason: `아직 ${daysPassed}일 지났습니다. (권장 2~3일)`, color: "bg-yellow" };
             }
         }
 
         // 엑사쿰 로직
         else if (plant === 'exacum') {
             if (moisture !== null) {
-                if (moisture <= 3) result = { status: "물 필요", action: "지금 물 줘", reason: "수분 수치가 낮습니다.", color: "bg-green", warning: "⚠️ 엑사쿰 건조 위험!" };
-                else if (moisture === 4) result = { status: "유지", action: "기다려", reason: "현재 수분이 적당합니다.", color: "bg-green" };
-                else result = { status: "금지", action: "기다려", reason: "수분이 너무 많습니다.", color: "bg-red", warning: "🚨 엑사쿰 과습 주의!" };
+                if (moisture <= 3) result = { status: "주모 한잔주쇼!", action: "지금 물을 주지 않으면 죽소", reason: "수분 수치가 낮습니다.", color: "bg-green", warning: "⚠️ 엑사쿰 건조 위험!" };
+                else if (moisture === 4) result = { status: "편안", action: "ㄱㅊ", reason: "현재 수분이 적당합니다.", color: "bg-green" };
+                else result = { status: "금지", action: "ㄱㅊ", reason: "워터파크 개장.", color: "bg-red", warning: "🚨 엑사쿰 과습 주의!" };
             } else {
-                if (daysPassed >= 2) result = { status: "물 필요", action: "지금 물 줘", reason: `마지막 관수 후 ${daysPassed}일 지났습니다.`, color: "bg-green", warning: "⚠️ 엑사쿰 건조 위험!" };
-                else result = { status: "보류", action: "기다려", reason: `어제 물을 주었습니다. (권장 1~2일)`, color: "bg-yellow" };
+                if (daysPassed >= 2) result = { status: "주모 한잔주쇼!", action: "지금 물을 주지 않으면 죽소", reason: `마지막 관수 후 ${daysPassed}일 지났습니다.`, color: "bg-green", warning: "⚠️ 엑사쿰 건조 위험!" };
+                else result = { status: "보류", action: "ㄱㅊ", reason: `어제 물을 주었습니다. (권장 1~2일)`, color: "bg-yellow" };
             }
         }
 
